@@ -50,37 +50,8 @@ public class UserFollowingFollowingUser {
   /**
    * 性别:   * &#x60;0&#x60; - 未知   * &#x60;1&#x60; - 男性   * &#x60;2&#x60; - 女性 
    */
-  public enum GenderEnum {
-    NUMBER_0(0),
-    NUMBER_1(1),
-    NUMBER_2(2);
-
-    private Integer value;
-
-    GenderEnum(Integer value) {
-      this.value = value;
-    }
-    @JsonValue
-    public Integer getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    @JsonCreator
-    public static GenderEnum fromValue(String text) {
-      for (GenderEnum b : GenderEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-  }  @JsonProperty("gender")
-  private GenderEnum gender = null;
+  @JsonProperty("gender")
+  private String gender = null;
 
   public UserFollowingFollowingUser openId(String openId) {
     this.openId = openId;
@@ -208,7 +179,7 @@ public class UserFollowingFollowingUser {
     this.country = country;
   }
 
-  public UserFollowingFollowingUser gender(GenderEnum gender) {
+  public UserFollowingFollowingUser gender(String gender) {
     this.gender = gender;
     return this;
   }
@@ -218,11 +189,11 @@ public class UserFollowingFollowingUser {
    * @return gender
   **/
   @Schema(description = "性别:   * `0` - 未知   * `1` - 男性   * `2` - 女性 ")
-  public GenderEnum getGender() {
+  public String getGender() {
     return gender;
   }
 
-  public void setGender(GenderEnum gender) {
+  public void setGender(String gender) {
     this.gender = gender;
   }
 
