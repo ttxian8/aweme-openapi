@@ -65,39 +65,8 @@ public class EnterpriseLeadsLeadsUserInlineResponse2001Data {
   /**
    * 用户状态 * &#x60;-1&#x60; - 没兴趣 * &#x60;0&#x60; - 了解 * &#x60;1&#x60; - 有兴趣 * &#x60;2&#x60; - 有意愿 * &#x60;10&#x60; - 已转化 
    */
-  public enum LeadsLevelEnum {
-    NUMBER_MINUS_1(-1),
-    NUMBER_0(0),
-    NUMBER_1(1),
-    NUMBER_2(2),
-    NUMBER_10(10);
-
-    private Integer value;
-
-    LeadsLevelEnum(Integer value) {
-      this.value = value;
-    }
-    @JsonValue
-    public Integer getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    @JsonCreator
-    public static LeadsLevelEnum fromValue(String text) {
-      for (LeadsLevelEnum b : LeadsLevelEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-  }  @JsonProperty("leads_level")
-  private LeadsLevelEnum leadsLevel = null;
+  @JsonProperty("leads_level")
+  private String leadsLevel = null;
 
   @JsonProperty("tag_list")
   private List<EnterpriseLeadsLeadsUserInlineResponse200DataTagList> tagList = null;
@@ -285,7 +254,7 @@ public class EnterpriseLeadsLeadsUserInlineResponse2001Data {
     this.age = age;
   }
 
-  public EnterpriseLeadsLeadsUserInlineResponse2001Data leadsLevel(LeadsLevelEnum leadsLevel) {
+  public EnterpriseLeadsLeadsUserInlineResponse2001Data leadsLevel(String leadsLevel) {
     this.leadsLevel = leadsLevel;
     return this;
   }
@@ -295,11 +264,11 @@ public class EnterpriseLeadsLeadsUserInlineResponse2001Data {
    * @return leadsLevel
   **/
   @Schema(description = "用户状态 * `-1` - 没兴趣 * `0` - 了解 * `1` - 有兴趣 * `2` - 有意愿 * `10` - 已转化 ")
-  public LeadsLevelEnum getLeadsLevel() {
+  public String getLeadsLevel() {
     return leadsLevel;
   }
 
-  public void setLeadsLevel(LeadsLevelEnum leadsLevel) {
+  public void setLeadsLevel(String leadsLevel) {
     this.leadsLevel = leadsLevel;
   }
 
